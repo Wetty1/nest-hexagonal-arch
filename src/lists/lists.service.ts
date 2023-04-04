@@ -19,7 +19,7 @@ export class ListsService {
     const list = new IList();
     list.name = createListDto.name;
 
-    // await this.listPersistenceGateway.create(createListDto);
+    await this.listPersistenceGateway.create(createListDto);
     this.eventEmitter.emit('list.created', new ListCreatedEvent(list));
     return list;
   }

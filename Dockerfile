@@ -6,4 +6,13 @@ USER node
 
 WORKDIR /home/node/app
 
-CMD [ "tail", "-f", "/dev/null"]
+COPY . .
+
+RUN yarn
+
+RUN yarn build
+
+# CMD [ "tail", "-f", "/dev/null"]
+EXPOSE 3000
+
+ENTRYPOINT [ "node", "dist/main"]
